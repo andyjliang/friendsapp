@@ -13,31 +13,31 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# [START gke_quickstart_deployment_deployment_helloworld_gke]
+# [START gke_quickstart_deployment_deployment_friendsapp_gke]
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: helloworld-gke
+  name: friendsapp-gke
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: hello
+      app: friendsapp
   template:
     metadata:
       labels:
-        app: hello
+        app: friendsapp
     spec:
       containers:
-      - name: hello-app
+      - name: friendsapp
         # Replace $LOCATION with your Artifact Registry location (e.g., us-west1).
         # Replace $GCLOUD_PROJECT with your project ID.
-        image: $LOCATION-docker.pkg.dev/$GCLOUD_PROJECT/hello-repo/helloworld-gke:latest
+        image: $LOCATION-docker.pkg.dev/$GCLOUD_PROJECT/friendsapp/friendsapp-gke:latest
         # This app listens on port 8080 for web traffic by default.
         ports:
         - containerPort: 8080
         env:
           - name: PORT
             value: "8080"
-# [END gke_quickstart_deployment_deployment_helloworld_gke]
+# [END gke_quickstart_deployment_deployment_friendsapp_gke]
 ---

@@ -1,19 +1,15 @@
-package com.example.helloworld;
+package com.andyliang.friendsapp;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
-public class HelloworldApplication {
-
-	@Value("${TARGET:World}")
-	String target;
+public class FriendsApplication {
 
 	@RestController
-	class HelloworldController {
+	class FriendsController {
 		@GetMapping("/")
 		String hello() {
 			return "Bouns a bitch";
@@ -21,6 +17,6 @@ public class HelloworldApplication {
 	}
 
 	public static void main(String[] args) {
-		SpringApplication.run(HelloworldApplication.class, args);
+		SpringApplication.run(FriendsApplication.class, args);
 	}
 }

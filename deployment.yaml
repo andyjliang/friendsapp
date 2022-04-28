@@ -36,8 +36,5 @@ spec:
         # This app listens on port 8080 for web traffic by default.
         ports:
         - containerPort: 8080
-        env:
-          - name: PORT
-            value: "8080"
 # [END gke_quickstart_deployment_deployment_friendsapp_gke]
 ---

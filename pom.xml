@@ -8,11 +8,11 @@
 		<version>2.6.6</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.example</groupId>
-	<artifactId>helloworld</artifactId>
+	<groupId>com.andyliang</groupId>
+	<artifactId>friendsapp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>helloworld</name>
-	<description>Demo project for Spring Boot</description>
+	<name>friendsapp</name>
+	<description>Friends App</description>
 
 	<properties>
 		<java.version>1.8</java.version>

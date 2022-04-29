@@ -16,7 +16,7 @@ public class ActivityApi {
     }
 
     @PostMapping()
-    public ResponseEntity<String> createActivity() {
+    public ResponseEntity<ActivitiesDto> createActivity() {
         return ResponseEntity.ok(activityService.createActivity());
     }
 
@@ -24,6 +24,6 @@ public class ActivityApi {
     public ResponseEntity<ActivitiesDto> updateActivity(
             @RequestParam String done,
             @PathVariable(name = "activityId") String activityId) {
-        return ResponseEntity.ok(activityService.createActivity());
+        return ResponseEntity.ok(activityService.updateActivity());
     }
 }

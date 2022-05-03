@@ -1,41 +1,47 @@
 CREATE SCHEMA friendsapp;
 
-CREATE TABLE friendsapp.user (
+CREATE TABLE friendsapp.users (
 	id                   int  NOT NULL  AUTO_INCREMENT  PRIMARY KEY,
 	name                 varchar(100)
  );
 
-CREATE TABLE friendsapp.group (
+CREATE TABLE friendsapp.groups (
 	id                   int  NOT NULL  AUTO_INCREMENT  PRIMARY KEY,
 	name                 varchar(100),
 	active               bit
  );
 
-CREATE TABLE friendsapp.friend (
+CREATE TABLE friendsapp.friends (
 	id                   int  NOT NULL  AUTO_INCREMENT  PRIMARY KEY,
 	name                 varchar(100)
  );
 
-CREATE TABLE friendsapp.activity (
+CREATE TABLE friendsapp.activities (
 	id                   int  NOT NULL  AUTO_INCREMENT  PRIMARY KEY,
 	title                varchar(100),
-	description          varchar(300),
+	description          varchar(300)
  );
 
 CREATE TABLE friendsapp.user_group (
 	id                   int  NOT NULL  AUTO_INCREMENT  PRIMARY KEY,
-	user_id              FOREIGN KEY REFERENCES friendsapp.user(id),
-	group_id             FOREIGN KEY REFERENCES friendsapp.group(id)
+	user_id              int  NOT NULL,
+	group_id             int  NOT NULL,
+	FOREIGN KEY (user_id) REFERENCES friendsapp.users(id),
+	FOREIGN KEY (group_id) REFERENCES friendsapp.groups(id)
  );
 
 CREATE TABLE friendsapp.friend_group (
 	id                   int  NOT NULL  AUTO_INCREMENT  PRIMARY KEY,
-	friend_id            FOREIGN KEY REFERENCES friendsapp.friend(id),
-	group_id             FOREIGN KEY REFERENCES friendsapp.group(id)
+	friend_id            int  NOT NULL,
+	group_id             int  NOT NULL,
+	FOREIGN KEY (friend_id) REFERENCES friendsapp.friends(id),
+	FOREIGN KEY (group_id) REFERENCES friendsapp.groups(id)
  );
 
 CREATE TABLE friendsapp.group_activity (
 	id                   int  NOT NULL  AUTO_INCREMENT  PRIMARY KEY,
-	activity_id          FOREIGN KEY REFERENCES friendsapp.activity(id),
-	group_id             FOREIGN KEY REFERENCES friendsapp.group(id)
+	activity_id          int  NOT NULL,
+	group_id             int  NOT NULL,
+	FOREIGN KEY (activity_id) REFERENCES friendsapp.activities(id),
+	FOREIGN KEY (group_id) REFERENCES friendsapp.groups(id)
  );

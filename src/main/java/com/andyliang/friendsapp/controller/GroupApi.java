@@ -3,6 +3,7 @@ package com.andyliang.friendsapp.controller;
 import com.andyliang.friendsapp.data.dto.ActivitiesDto;
 import com.andyliang.friendsapp.data.dto.GroupsDto;
 import com.andyliang.friendsapp.service.GroupService;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,17 +17,18 @@ public class GroupApi {
         this.groupService = groupService;
     }
 
-    @GetMapping()
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<GroupsDto> getGroups() {
         return ResponseEntity.ok(groupService.getGroups());
     }
 
-    @PostMapping()
+    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<GroupsDto> createGroup() {
         return ResponseEntity.ok(groupService.createGroup());
     }
 
-    @PatchMapping(value = "/{groupId}")
+    @PatchMapping(value = "/{groupId}",
+            produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<GroupsDto> updateGroup(@RequestParam String active) {
         return ResponseEntity.ok(groupService.toggleGroupActive());
     }

@@ -1,0 +1,14 @@
+package io.andyliang.friendsapp;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+
+@SpringBootApplication
+public class FriendsappApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(FriendsappApplication.class, args);
+    }
+
+}

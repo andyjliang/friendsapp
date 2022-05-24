@@ -19,13 +19,20 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     // TODO replace inmem w/ remote cluster ref
     runtimeOnly 'com.h2database:h2'
+    implementation 'org.springdoc:springdoc-openapi-ui:1.6.8'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    testCompileOnly 'org.projectlombok:lombok'
+    testAnnotationProcessor 'org.projectlombok:lombok'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
-group = 'com.andyliang'
+group = 'io.andyliang'
 version = '0.0.1-SNAPSHOT'
 description = 'friendsapp'
 java.sourceCompatibility = JavaVersion.VERSION_11
